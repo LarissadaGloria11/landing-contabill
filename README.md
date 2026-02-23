@@ -1,15 +1,20 @@
-# Landing Page - Glória Contabilidade
+# Landing Page - Glória Contabilidade PRO
 
-##  Sobre o Projeto
-Landing Page desenvolvida em HTML5 e CSS3 para uma empresa de serviços contábeis.
+##  Descrição
+Landing Page profissional desenvolvida para empresa de serviços contábeis,
+com foco em UX, interatividade e organização de código.
 
-##  Como executar o projeto
+##  Tecnologias
+- HTML5
+- CSS3
+- JavaScript
 
-1. Baixe ou clone o repositório:
-   git clone https://github.com/LarissadaGloria11/landing-contabill.git
+##  Como rodar localmente
+
+1. Clone o repositório:
+git clone https://github.com/seuusuario/seurepositorio.git
 
 2. Abra a pasta do projeto.
 
-3. Clique duas vezes no arquivo `index.html`.
+3. Clique duas vezes no arquivo index.html.
 
-O site abrirá no navegador.
