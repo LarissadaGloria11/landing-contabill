@@ -6,7 +6,7 @@ Landing Page desenvolvida em HTML5 e CSS3 para uma empresa de serviços contábe
 ##  Como executar o projeto
 
 1. Baixe ou clone o repositório:
-   git clone 
+   git clone https://github.com/LarissadaGloria11/landing-contabill.git
 
 2. Abra a pasta do projeto.
 
