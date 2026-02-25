@@ -1,0 +1,49 @@
+name: Esteira de Qualidade
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  verificar-estrutura:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2️⃣ Verificar se pasta src existe
+      - name: Verificar pasta src
+        run: |
+          if [ ! -d "src" ]; then
+            echo "Erro: pasta src não encontrada!"
+            exit 1
+          fi
+
+      # 3️⃣ Verificar CSS no caminho correto
+      - name: Verificar arquivo CSS
+        run: |
+          if [ ! -f "src/css/style.css" ]; then
+            echo "Erro: style.css não está em src/css/"
+            exit 1
+          fi
+
+      # 4️⃣ Verificar se existe <footer>
+      - name: Verificar presença de footer com nome
+        run: |
+          if ! grep -q "<footer>" src/index.html; then
+            echo "Erro: Footer obrigatório não encontrado!"
+            exit 1
+          fi
+
+      # 5️⃣ Linting profissional com HTMLHint
+      - name: HTMLHint
+        uses: Cyb3r-Jak3/htmlhint-action@v1
+        with:
+          target_pattern: 'src/index.html'
+
+      # 6️⃣ Mensagem final de auditoria
+      - name: Auditoria Final
+        run: echo "O código da aluna Larissa da Glória de Souza foi auditado e está seguindo as boas práticas de qualidade."

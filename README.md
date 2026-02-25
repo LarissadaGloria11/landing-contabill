@@ -18,3 +18,6 @@ git clone https://github.com/seuusuario/seurepositorio.git
 
 3. Clique duas vezes no arquivo index.html.
 
+## Deploy
+Acesse o projeto online:
+https://larissadagloria11.github.io/landing-contabill/
