@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout
+      # 1️⃣ Checkout do código
       - name: Checkout do código
         uses: actions/checkout@v4
 
@@ -22,7 +22,7 @@ jobs:
             exit 1
           fi
 
-      # 3️⃣ Verificar CSS no caminho correto
+      # 3️⃣ Verificar se o CSS está no caminho correto
       - name: Verificar arquivo CSS
         run: |
           if [ ! -f "src/css/style.css" ]; then
@@ -30,11 +30,11 @@ jobs:
             exit 1
           fi
 
-      # 4️⃣ Verificar se existe <footer>
+      # 4️⃣ Verificar se o footer contém o nome do aluno
       - name: Verificar presença de footer com nome
         run: |
-          if ! grep -q "<footer>" src/index.html; then
-            echo "Erro: Footer obrigatório não encontrado!"
+          if ! grep -q "Larissa da Glória de Souza" src/index.html; then
+            echo "Erro: Footer obrigatório com nome do aluno não encontrado!"
             exit 1
           fi
 
