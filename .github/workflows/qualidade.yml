@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      # 2️⃣ Verificar pasta src
       - name: Verificar pasta src
         run: |
           if [ ! -d "src" ]; then
@@ -20,6 +22,7 @@ jobs:
             exit 1
           fi
 
+      # 3️⃣ Verificar arquivo CSS
       - name: Verificar arquivo CSS
         run: |
           if [ ! -f "src/css/style.css" ]; then
@@ -27,6 +30,7 @@ jobs:
             exit 1
           fi
 
+      # 4️⃣ Verificar footer com nome
       - name: Verificar presença de footer com nome
         run: |
           if ! grep -q "Larissa da Glória de Souza" src/index.html; then
@@ -34,10 +38,18 @@ jobs:
             exit 1
           fi
 
-      - name: HTMLHint
-        uses: htmlhint/htmlhint-action@v1
+      # 5️⃣ Configurar Node.js para rodar HTMLHint
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
-          files: "src/index.html"
+          node-version: "18"
 
+      # 6️⃣ Instalar HTMLHint e rodar lint
+      - name: Instalar e rodar HTMLHint
+        run: |
+          npm install -g htmlhint
+          htmlhint src/index.html
+
+      # 7️⃣ Mensagem final de auditoria
       - name: Auditoria Final
         run: echo "O código da aluna Larissa da Glória de Souza foi auditado e está seguindo as boas práticas de qualidade."
