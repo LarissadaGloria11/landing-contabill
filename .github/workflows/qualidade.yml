@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout do código
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2️⃣ Verificar se pasta src existe
       - name: Verificar pasta src
         run: |
           if [ ! -d "src" ]; then
@@ -22,7 +20,6 @@ jobs:
             exit 1
           fi
 
-      # 3️⃣ Verificar se o CSS está no caminho correto
       - name: Verificar arquivo CSS
         run: |
           if [ ! -f "src/css/style.css" ]; then
@@ -30,7 +27,6 @@ jobs:
             exit 1
           fi
 
-      # 4️⃣ Verificar se o footer contém o nome do aluno
       - name: Verificar presença de footer com nome
         run: |
           if ! grep -q "Larissa da Glória de Souza" src/index.html; then
@@ -38,12 +34,10 @@ jobs:
             exit 1
           fi
 
-      # 5️⃣ Linting profissional com HTMLHint
       - name: HTMLHint
-        uses: Cyb3r-Jak3/htmlhint-action@v1
+        uses: htmlhint/htmlhint-action@v1
         with:
-          target_pattern: 'src/index.html'
+          files: "src/index.html"
 
-      # 6️⃣ Mensagem final de auditoria
       - name: Auditoria Final
         run: echo "O código da aluna Larissa da Glória de Souza foi auditado e está seguindo as boas práticas de qualidade."
