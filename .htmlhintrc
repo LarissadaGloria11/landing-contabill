@@ -1,9 +1,9 @@
 {
+  "tag-pair": true,
   "attr-lowercase": true,
   "attr-value-double-quotes": true,
   "attr-no-dup": true,
-  "tag-pair": true,
-  "spec-char-escape": true,
   "id-unique": true,
-  "src-not-empty": true
+  "src-not-empty": true,
+  "attr-validate": true
 }
