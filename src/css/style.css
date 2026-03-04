@@ -2,10 +2,9 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: #f4f6f8;
   color: #333;
 }
@@ -19,42 +18,45 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
 .hero {
-  text-align: center;
   padding: 80px 20px;
+  color: #fff;
+  text-align: center;
   background: #34495e;
-  color: white;
 }
 
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  background: #2c3e50;
-  color: white;
-  text-decoration: none;
   margin-top: 15px;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  background: #2c3e50;
 }
 
-.services, .about, .faq, .contact {
+.services,
+.about,
+.faq,
+.contact {
   padding: 60px 20px;
   text-align: center;
 }
 
 .grid {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .card {
-  background: white;
-  padding: 20px;
   width: 250px;
+  padding: 20px;
+  background: #fff;
   border-radius: 8px;
 }
 
@@ -64,39 +66,40 @@ nav a {
 }
 
 form {
-  max-width: 400px;
-  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 400px;
+  margin: auto;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 10px;
 }
 
 button {
   padding: 10px;
-  background: #2c3e50;
-  color: white;
-  border: none;
+  color: #fff;
   cursor: pointer;
+  background: #2c3e50;
+  border: none;
 }
 
 .whatsapp {
   position: fixed;
-  bottom: 20px;
   right: 20px;
-  background: green;
-  color: white;
+  bottom: 20px;
   padding: 15px;
-  border-radius: 50%;
+  color: #fff;
   text-decoration: none;
+  background: green;
+  border-radius: 50%;
 }
 
 .dark-mode {
+  color: #fff;
   background: #121212;
-  color: white;
 }
 
 .dark-toggle {
