@@ -3,6 +3,10 @@ html {
 }
 
 body {
+    background: red
+}
+
+body {
   margin: 0;
   font-family: Arial;
   background: #f4f6f8;
