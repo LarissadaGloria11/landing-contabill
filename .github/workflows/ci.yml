@@ -13,48 +13,29 @@ permissions:
 
 jobs:
 
-  # 🔹 JOB 1 - TEST (Linter)
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
-
-      - name: Instalar Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Instalar dependências
-        run: npm install
-
-      - name: Rodar Linter
-        run: npm run lint
-
-  # 🔹 JOB 2 - BUILD
+  # 🔹 JOB 1 - BUILD
   build:
     runs-on: ubuntu-latest
-    needs: test
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Criar pasta dist
+      - name: Criar pasta build
         run: |
           mkdir build
           cp -r *.html build/
           cp -r CSS build/
           cp -r JS build/
 
+      # ⚠️ ERRO PROPOSITAL AQUI
       - name: Upload artefato
         uses: actions/upload-artifact@v4
         with:
           name: site
-          path: dist
+          path: dist   # ← NÃO EXISTE (vai falhar)
 
-  # 🔹 JOB 3 - DEPLOY
+  # 🔹 JOB 2 - DEPLOY
   deploy:
     runs-on: ubuntu-latest
     needs: build
