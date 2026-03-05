@@ -45,8 +45,8 @@ jobs:
         run: |
           mkdir build
           cp -r *.html build/
-          cp -r CSS buid/
-          cp -r JS buid/
+          cp -r CSS build/
+          cp -r JS build/
 
       - name: Upload artefato
         uses: actions/upload-artifact@v4
