@@ -21,19 +21,16 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Criar pasta build
+      - name: Criar pasta build e copiar arquivos da src
         run: |
           mkdir build
-          cp -r *.html build/
-          cp -r CSS build/
-          cp -r JS build/
+          cp -r src/* build/
 
-      # ⚠️ ERRO PROPOSITAL AQUI
       - name: Upload artefato
         uses: actions/upload-artifact@v4
         with:
           name: site
-          path: dist   # ← NÃO EXISTE (vai falhar)
+          path: build
 
   # 🔹 JOB 2 - DEPLOY
   deploy:
@@ -49,7 +46,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: site
-          path: dist
+          path: build
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
@@ -57,7 +54,7 @@ jobs:
       - name: Upload para Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: build
 
       - name: Deploy
         id: deployment
